@@ -7,7 +7,8 @@
 class HubDo extends DIDo {
 
     function start() {
-        die('hub');
+        $sub = Url::getVariableDomain();
+        dump("当前子域名：{$sub}");
     }
 
 }
