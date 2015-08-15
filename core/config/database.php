@@ -27,7 +27,7 @@ if (in_array($hostSuffix, array(
         static $port = 11211;
     }
     
-} elseif (in_array($hostname, array(
+} elseif (in_array($hostSuffix, array(
     'dev.larele.com'
 ))) {
     
