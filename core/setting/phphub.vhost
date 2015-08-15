@@ -1,0 +1,53 @@
+Apache HP PC:
+
+NameVirtualHost phphub.dev:80
+<VirtualHost *:80>
+	DocumentRoot E:/InstalledApp/Zend/Apache2/htdocs/php-hub
+	ServerName phphub.dev
+	ServerAlias *.phphub.dev
+</VirtualHost>
+
+
+--------------------------------------------------------------
+
+Apache Company PC:
+
+暂未部署
+
+--------------------------------------------------------------
+
+Nginx Linode Tokyo:
+
+server {
+listen 80;
+server_name dev.larele.com *.dev.larele.com;
+access_log /home/wwwlogs/dev.larele.com_nginx.log combined;
+index index.html index.htm index.jsp index.php;
+include other.conf;
+root /home/wwwroot/dev.larele.com;
+#error_page 404 /404.html;
+if ( $query_string ~* ".*[\;'\<\>].*" ){
+        return 404;
+        }
+
+location / {
+     if (!-e $request_filename) {
+          rewrite ~*. /index.php last;
+                }
+        }
+
+location ~ .*\.(php|php5)?$  {
+        #fastcgi_pass remote_php_ip:9000;
+        fastcgi_pass unix:/dev/shm/php-cgi.sock;
+        fastcgi_index index.php;
+        include fastcgi.conf;
+        }
+
+location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|flv|ico)$ {
+        expires 30d;
+        }
+
+location ~ .*\.(js|css)?$ {
+        expires 7d;
+        }
+}
