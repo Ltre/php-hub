@@ -1,0 +1,30 @@
+# clone方式更新
+
+mkdir /home/wwwbackup/
+cd /home/wwwroot/
+tar -cf /home/wwwbackup/dev.larele.com.tar  dev.larele.com/
+git clone https://github.com/Ltre/php-hub.git
+rm -f -r php-hub/core/data/
+mv dev.larele.com/core/data/  php-hub/core/data/
+mv dev.larele.com/  dev.larele.com.trash/
+mv php-hub/ dev.larele.com/
+chmod -R 767 dev.larele.com/core/data/
+rm -f -r dev.larele.com.trash/
+
+
+
+# pull方式更新
+#（前置命令：mkdir /home/wwwbackup; mkdir /home/wwwsrc; cd /home/wwwsrc; git clone https://github.com/Ltre/php-hub.git ）
+
+
+cd /home/wwwsrc/php-hub
+git pull
+cp /home/wwwsrc/php-hub -r  /home/wwwroot/php-hub
+cd /home/wwwroot
+tar -cf /home/wwwbackup/dev.larele.com.tar  dev.larele.com/
+rm -f -r php-hub/core/data/
+mv dev.larele.com/core/data/  php-hub/core/data/
+mv dev.larele.com/  dev.larele.com.trash/
+mv php-hub/ dev.larele.com/
+chmod -R 767 dev.larele.com/core/data/
+rm -f -r dev.larele.com.trash/
