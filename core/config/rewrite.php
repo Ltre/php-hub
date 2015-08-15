@@ -25,11 +25,16 @@ class DIRouteRewrite {
     
 }
 
+
+//以下代码为适应泛解析而配置，和原框架代码有所不同
+$hostname = substr( ($h = $_SERVER['HTTP_HOST']), 0, (false !== ($pos = strpos($h, ':')) ? $pos : strlen($h)) );
+$hostPrefix = preg_replace('/(.*)\.(phphub\.dev|dev\.larele\.com)$/i', '$1', $hostname);
+
 DIRouteRewrite::$rulesMap = array(
-    '://phphub.dev' => 'hub/start',
-    '://dev.larele.com' => 'hub/start',
-    '://*.phphub.dev' => 'hub/start',
-    '://*.dev.larele.com' => 'hub/start',
+    "://{$hostPrefix}.phphub.dev" => 'hub/start',
+    "://{$hostPrefix}.dev.larele.com" => 'hub/start',
+    '://phphub.dev' => 'main/start',
+    '://dev.larele.com' => 'main/start',
 );
 
 DIRouteRewrite::$rulesMap += array(
