@@ -1,4 +1,5 @@
 # clone方式更新
+# 前置命令：cd /home/wwwroot; git clone https://github.com/Ltre/php-hub.git; mv /home/wwwroot/php-hub /home/wwwroot/dev.larele.com
 
 mkdir /home/wwwbackup/
 cd /home/wwwroot/
