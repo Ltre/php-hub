@@ -9,6 +9,7 @@ rm -f -r php-hub/core/data/
 mv dev.larele.com/core/data/  php-hub/core/data/
 mv dev.larele.com/  dev.larele.com.trash/
 mv php-hub/ dev.larele.com/
+rm dev.larele.com/.git -r -f
 chmod -R 767 dev.larele.com/core/data/
 rm -f -r dev.larele.com.trash/
 
@@ -27,5 +28,6 @@ rm -f -r php-hub/core/data/
 mv dev.larele.com/core/data/  php-hub/core/data/
 mv dev.larele.com/  dev.larele.com.trash/
 mv php-hub/ dev.larele.com/
+rm dev.larele.com/.git -r -f
 chmod -R 767 dev.larele.com/core/data/
 rm -f -r dev.larele.com.trash/
