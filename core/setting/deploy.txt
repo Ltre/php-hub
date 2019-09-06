@@ -15,7 +15,7 @@ rm -f -r dev.larele.com.trash/
 
 
 
-# pull方式更新 【优先采用】
+# pull方式更新
 #（前置命令：mkdir /home/wwwbackup; mkdir /home/wwwsrc; cd /home/wwwsrc; git clone https://github.com/Ltre/php-hub.git ）
 
 
